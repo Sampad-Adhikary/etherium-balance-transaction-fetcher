@@ -1,20 +1,14 @@
-# runtime: python311
-# entrypoint: gunicorn -b :$PORT myproject.wsgi
-
-# env_variables:
-#   DJANGO_SETTINGS_MODULE: "myproject.settings"
-
-# automatic_scaling:
-#   target_cpu_utilization: 0.65
-#   min_instances: 1
-#   max_instances: 16
-
 runtime: python311
 entrypoint: gunicorn -b :$PORT myproject.wsgi
 
 env_variables:
   DJANGO_SETTINGS_MODULE: "myproject.settings"
 
-libraries:
-  - name: web3
-    version: 6.4.0
+manual_scaling:
+  instances: 15
+
+handlers:
+  - url: /static
+    static_dir: static
+  - url: /.*
+    script: auto

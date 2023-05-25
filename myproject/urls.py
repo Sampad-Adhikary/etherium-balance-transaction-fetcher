@@ -20,6 +20,8 @@ from django.urls import path
 from myapp.views import home
 from myapp.views import fetch_ethereum
 from myapp.views import result
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -29,3 +31,6 @@ urlpatterns = [
     path('result/', result, name='result'),
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
