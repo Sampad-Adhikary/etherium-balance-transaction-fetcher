@@ -3,3 +3,6 @@
 
 ## Live Link:
 https://django-fetch-387807.uc.r.appspot.com/fetch-ethereum/
+
+## Demo Ethereum Address:
+0x742d35cc6634c0532925a3b844bc454e4438f44e
